@@ -1,5 +1,9 @@
 <script setup>
+import { defineEmits } from 'vue'
+
+const emit = defineEmits(['login', 'create-account'])
 </script>
+
 <template>
   <header class="header">
     <div class="header-group">
@@ -9,8 +13,10 @@
         </div>
 
         <div class="flex">
-          <button class="px-6 py-2 font-bold text-white focus:outline-none">Crie uma conta</button>
-          <button class="px-6 py-2 font-bold text-brand-main rounded-full bg-white focus:outline-none">
+          <button class="px-6 py-2 font-bold text-white focus:outline-none" @click="() => emit('create-account')">Crie
+            uma conta</button>
+          <button @click="() => emit('login')"
+            class="px-6 py-2 font-bold text-brand-main rounded-full bg-white focus:outline-none">
             Entrar
           </button>
         </div>
