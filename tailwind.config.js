@@ -245,7 +245,7 @@ module.exports = {
     fontFamily: {
       regular: ['RobotoRegular'],
       medium: ['RobotoMedium'],
-      bold: ['RobotoBsold'],
+      bold: ['RobotoBold'],
       black: ['Robotoblack'],
       sans: [
         'ui-sans-serif',

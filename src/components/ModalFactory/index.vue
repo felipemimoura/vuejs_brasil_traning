@@ -1,6 +1,5 @@
-<!-- eslint-disable no-unused-vars -->
 <script setup>
-import { defineAsyncComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, watch } from 'vue'
+import { defineAsyncComponent, onBeforeUnmount, onMounted, reactive } from 'vue'
 import useModal from '../../hooks/useModal'
 const ModalLogin = defineAsyncComponent(() => import('../ModalLogin'))
 const ModalCreateAccount = defineAsyncComponent(() => import('../ModalCreateAcccout'))
@@ -26,7 +25,6 @@ onBeforeUnmount(() => {
 })
 
 const handleModalStatus = (payload) => {
-  console.log(payload)
   if (payload.status) {
     state.component = payload.component
     state.props = payload.props
@@ -49,9 +47,7 @@ const handleModalStatus = (payload) => {
         <div class="flex flex-col overflow-hidden rounded-lg animate__animated animate__fadeInDown animated_faster">
 
           <div class="flex flex-col px-12 py-10 bg-white">
-            <!-- Component dinamico -->
             <component :is="components[state.component]" />
-            <!-- <component :is="ModalCreateAcccout" /> -->
           </div>
         </div>
       </div>
