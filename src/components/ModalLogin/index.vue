@@ -1,19 +1,24 @@
 <script setup>
 import useModal from '@/hooks/useModal'
 import { reactive } from 'vue'
+import { useField } from 'vee-validate'
+import { validadeEmptyAndEmail, validadeEmptyAndLength3 } from '../../utils/validade'
 
 const modal = useModal()
+
+const { value: emailValue, errorMessage: emailErrorMessage } = useField('email', validadeEmptyAndEmail)
+const { value: passwordValue, errorMessage: passwordErrorMessageValue } = useField('password', validadeEmptyAndLength3)
 
 const state = reactive({
   isLoading: false,
   hasError: false,
   email: {
-    value: '',
-    errorMessage: ''
+    value: emailValue,
+    errorMessage: emailErrorMessage
   },
   password: {
-    value: '',
-    errorMessage: ''
+    value: passwordValue,
+    errorMessage: passwordErrorMessageValue
   }
 })
 
